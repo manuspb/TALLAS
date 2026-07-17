@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Tallas — Superbikes Málaga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0D0D0D; --surface: #181818; --surface2: #222222; --border: #2E2E2E;
+    --red: #E8002D; --red-dim: rgba(232,0,45,0.12);
+    --text: #F0F0F0; --muted: #888888;
+    --font-display: 'Bebas Neue', sans-serif; --font-body: 'Inter', sans-serif;
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 14px; min-height: 100vh; }
+
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 28px 40px 24px; }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .site-name { font-family: var(--font-display); font-size: 13px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; margin-bottom: 6px; }
+  .page-title { font-family: var(--font-display); font-size: 48px; letter-spacing: 2px; line-height: 1; }
+  .header-hint { font-size: 13px; color: var(--muted); max-width: 280px; line-height: 1.5; text-align: right; }
+
+  .tabs-wrap { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .tabs { max-width: 1100px; margin: 0 auto; display: flex; padding: 0 40px; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { background: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 16px 20px 14px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color .2s, border-color .2s; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--red); }
+
+  .main { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* BRAND SELECTOR */
+  .brand-selector { display: flex; gap: 8px; margin-bottom: 32px; align-items: center; }
+  .brand-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-family: var(--font-display); font-size: 16px; letter-spacing: 2px; padding: 7px 18px 5px; border-radius: 2px; cursor: pointer; transition: all .2s; }
+  .brand-btn:hover { color: var(--text); border-color: #555; }
+  .brand-btn.active { background: var(--red-dim); border-color: var(--red); color: var(--text); }
+  .brand-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-left: 8px; }
+
+  .brand-content { display: none; }
+  .brand-content.active { display: block; }
+
+  .section-block { margin-bottom: 36px; }
+  .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .section-title { font-family: var(--font-display); font-size: 20px; letter-spacing: 1.5px; }
+  .section-models { font-size: 11px; color: var(--muted); margin-bottom: 10px; padding-left: 2px; line-height: 1.5; }
+  .red-bar { width: 3px; height: 22px; background: var(--red); border-radius: 1px; flex-shrink: 0; }
+
+  .measure-note { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); padding: 5px 10px; border-radius: 3px; margin-bottom: 12px; }
+
+  .table-wrap { overflow-x: auto; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 4px; }
+  table { width: 100%; border-collapse: collapse; min-width: 380px; }
+  thead tr { background: var(--surface2); }
+  thead th { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  thead th:first-child { color: var(--text); min-width: 130px; }
+  .size-th { font-family: var(--font-display) !important; font-size: 15px !important; letter-spacing: 1px !important; color: var(--text) !important; text-align: center !important; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+  tbody td { padding: 10px 14px; font-size: 13px; white-space: nowrap; }
+  tbody td.row-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  tbody td.size-val { text-align: center; font-weight: 500; }
+  .sub-size { font-family: Inter; font-size: 10px; font-weight: 500; letter-spacing: 0; color: var(--muted); display: block; }
+
+  .sub-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+  .sub-tab-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 7px 14px; border-radius: 2px; cursor: pointer; transition: all .2s; }
+  .sub-tab-btn:hover { color: var(--text); border-color: #555; }
+  .sub-tab-btn.active { background: var(--red-dim); border-color: var(--red); color: var(--text); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .sub-content { display: none; }
+  .sub-content.active { display: block; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .foot-note { font-size: 12px; color: var(--muted); margin-top: 8px; padding-left: 2px; }
+  .warn-note { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #f0a500; background: rgba(240,165,0,0.08); border: 1px solid rgba(240,165,0,0.25); padding: 5px 10px; border-radius: 3px; margin-bottom: 12px; }
+
+  @media (max-width: 680px) {
+    .header { padding: 20px; } .page-title { font-size: 32px; } .header-hint { display: none; }
+    .main { padding: 20px 16px 60px; } .tabs { padding: 0 16px; } .tab-btn { padding: 13px 10px 11px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="site-name">Superbikes Málaga</div>
+      <h1 class="page-title">GUÍA DE TALLAS</h1>
+    </div>
+    <p class="header-hint">Mide siempre sobre el cuerpo, no sobre la ropa. Ante la duda entre dos tallas, sube una.</p>
+  </div>
+</header>
+
+<nav class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('ropa',this)">🧥 Ropa</button>
+    <button class="tab-btn" onclick="showTab('calzado',this)">👟 Calzado</button>
+    <button class="tab-btn" onclick="showTab('cascos',this)">🪖 Cascos</button>
+    <button class="tab-btn" onclick="showTab('guantes',this)">🧤 Guantes</button>
+    <button class="tab-btn" onclick="showTab('protecciones',this)">🛡️ Protecciones</button>
+    <button class="tab-btn" onclick="showTab('calcetines',this)">🧦 Calcetines</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════════════
+     ROPA
+══════════════════════════════════════ -->
+<div id="tab-ropa" class="tab-content active">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('ropa','leatt',this)">LEATT</button>
+    <button class="brand-btn" onclick="showBrand('ropa','fox',this)">FOX</button>
+    <button class="brand-btn" onclick="showBrand('ropa','inverse',this)">INVERSE</button>
+    <button class="brand-btn" onclick="showBrand('ropa','mavic',this)">MAVIC</button>
+    <button class="brand-btn" onclick="showBrand('ropa','gore',this)">GORE</button>
+  </div>
+
+  <!-- ROPA · LEATT -->
+  <div id="ropa-leatt" class="brand-content active">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CAMISETAS / CHAQUETAS</h2></div>
+      <div class="measure-note">Pecho por la parte más ancha. Brazo desde la nuca hasta la muñeca.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+          <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">2XL</th>
+          <th class="size-th">3XL</th><th class="size-th">4XL</th><th class="size-th">5XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Brazo (cm)</td><td class="size-val">62–63</td><td class="size-val">63–64</td><td class="size-val">64–65</td><td class="size-val">65–66</td><td class="size-val">67–68</td><td class="size-val">68–69</td><td class="size-val">69–70</td><td class="size-val">70–71</td><td class="size-val">71–72</td></tr>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">91–96</td><td class="size-val">96–102</td><td class="size-val">102–105</td><td class="size-val">106–112</td><td class="size-val">112–116</td><td class="size-val">116–122</td><td class="size-val">122–127</td><td class="size-val">127–132</td><td class="size-val">132–137</td></tr>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">162–168</td><td class="size-val">168–172</td><td class="size-val">172–178</td><td class="size-val">178–182</td><td class="size-val">180–185</td><td class="size-val">182–188</td><td class="size-val">183–188</td><td class="size-val">183–190</td><td class="size-val">184–193</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">PANTALONES / SHORTS</h2></div>
+      <div class="measure-note">Cintura a la altura del ombligo. Entrepierna desde la ingle hasta el suelo.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS<br><span class="sub-size">EU46·US28</span></th>
+          <th class="size-th">S<br><span class="sub-size">EU48·US30</span></th>
+          <th class="size-th">M<br><span class="sub-size">EU50·US32</span></th>
+          <th class="size-th">L<br><span class="sub-size">EU52·US34</span></th>
+          <th class="size-th">XL<br><span class="sub-size">EU54·US36</span></th>
+          <th class="size-th">XXL<br><span class="sub-size">EU56·US38</span></th>
+          <th class="size-th">3XL<br><span class="sub-size">EU58·US40</span></th>
+          <th class="size-th">4XL<br><span class="sub-size">EU60·US42</span></th>
+          <th class="size-th">5XL<br><span class="sub-size">EU62·US44</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Cintura (cm)</td><td class="size-val">68–73</td><td class="size-val">73–78</td><td class="size-val">78–83</td><td class="size-val">83–88</td><td class="size-val">88–93</td><td class="size-val">93–99</td><td class="size-val">99–104</td><td class="size-val">104–109</td><td class="size-val">109–115</td></tr>
+          <tr><td class="row-label">Entrepierna (cm)</td><td class="size-val">76–78</td><td class="size-val">78–79</td><td class="size-val">79–81</td><td class="size-val">81–83</td><td class="size-val">83–85</td><td class="size-val">83–86</td><td class="size-val">84–86</td><td class="size-val">85–87</td><td class="size-val">86–87</td></tr>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">162–168</td><td class="size-val">168–172</td><td class="size-val">172–178</td><td class="size-val">178–182</td><td class="size-val">180–185</td><td class="size-val">182–188</td><td class="size-val">183–188</td><td class="size-val">183–190</td><td class="size-val">184–193</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ROPA · INVERSE -->
+  <div id="ropa-inverse" class="brand-content">
+    <div class="measure-note">Medidas orientativas en cm. Contorno de pecho por la parte más ancha.</div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CICLISMO HOMBRE</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+          <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">90</td><td class="size-val">94</td><td class="size-val">98</td><td class="size-val">102</td><td class="size-val">106</td><td class="size-val">110</td><td class="size-val">114</td></tr>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">166–170</td><td class="size-val">170–174</td><td class="size-val">174–178</td><td class="size-val">178–182</td><td class="size-val">182–185</td><td class="size-val">185–188</td><td class="size-val">189–192</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CICLISMO MUJER</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+          <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">80</td><td class="size-val">84</td><td class="size-val">88</td><td class="size-val">92</td><td class="size-val">96</td><td class="size-val">100</td><td class="size-val">104</td></tr>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">156–162</td><td class="size-val">160–168</td><td class="size-val">164–171</td><td class="size-val">167–173</td><td class="size-val">169–175</td><td class="size-val">173–177</td><td class="size-val">177–180</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CICLISMO NIÑO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">6</th><th class="size-th">8</th><th class="size-th">10</th><th class="size-th">12</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">74</td><td class="size-val">80</td><td class="size-val">84</td><td class="size-val">86</td></tr>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">114–127</td><td class="size-val">127–140</td><td class="size-val">140–145</td><td class="size-val">146–151</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ROPA · MAVIC -->
+  <div id="ropa-mavic" class="brand-content">
+    <div class="measure-note">Pecho, cintura y cadera en cm por la parte más ancha.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ROPA CICLISMO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+          <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">83–87</td><td class="size-val">88–92</td><td class="size-val">93–97</td><td class="size-val">98–102</td><td class="size-val">103–108</td><td class="size-val">109–114</td><td class="size-val">115–120</td></tr>
+          <tr><td class="row-label">Cintura (cm)</td><td class="size-val">71–75</td><td class="size-val">76–80</td><td class="size-val">81–84</td><td class="size-val">85–90</td><td class="size-val">91–96</td><td class="size-val">97–102</td><td class="size-val">103–108</td></tr>
+          <tr><td class="row-label">Cadera (cm)</td><td class="size-val">85–89</td><td class="size-val">90–94</td><td class="size-val">95–98</td><td class="size-val">99–104</td><td class="size-val">105–110</td><td class="size-val">111–116</td><td class="size-val">117–122</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ROPA · GORE -->
+  <div id="ropa-gore" class="brand-content">
+    <div class="measure-note">Todas las medidas en cm.</div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ROPA HOMBRE</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th>
+          <th class="size-th">XL</th><th class="size-th">XXL</th><th class="size-th">XXXL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">84–89</td><td class="size-val">90–95</td><td class="size-val">96–101</td><td class="size-val">102–108</td><td class="size-val">109–116</td><td class="size-val">117–124</td></tr>
+          <tr><td class="row-label">Brazo (cm)</td><td class="size-val">77</td><td class="size-val">78.5</td><td class="size-val">80</td><td class="size-val">81.5</td><td class="size-val">83</td><td class="size-val">85</td></tr>
+          <tr><td class="row-label">Cintura (cm)</td><td class="size-val">70–75</td><td class="size-val">76–81</td><td class="size-val">82–87</td><td class="size-val">88–94</td><td class="size-val">95–102</td><td class="size-val">103–110</td></tr>
+          <tr><td class="row-label">Cadera (cm)</td><td class="size-val">84–89</td><td class="size-val">90–95</td><td class="size-val">96–101</td><td class="size-val">102–107</td><td class="size-val">108–114</td><td class="size-val">115–121</td></tr>
+          <tr><td class="row-label">Entrepierna (cm)</td><td class="size-val">81</td><td class="size-val">82</td><td class="size-val">83</td><td class="size-val">84</td><td class="size-val">85</td><td class="size-val">86</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">PERNERAS CICLISMO (UNISEX)</h2></div>
+      <div class="measure-note">Mide la circunferencia del muslo en su parte más ancha.</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS/S</th><th class="size-th">M/L</th><th class="size-th">XL/XXL</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">Muslo (cm)</td><td class="size-val">&lt; 53</td><td class="size-val">53–59</td><td class="size-val">59+</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">MANGUITOS (UNISEX)</h2></div>
+      <div class="measure-note">Mide la circunferencia del bíceps en su parte más ancha.</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS/S</th><th class="size-th">M/L</th><th class="size-th">XL/XXL</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">Bíceps (cm)</td><td class="size-val">&lt; 27</td><td class="size-val">27–33</td><td class="size-val">33+</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ROPA · FOX -->
+  <div id="ropa-fox" class="brand-content">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">JERSEYS MTB</h2></div>
+      <div class="measure-note">Pecho por la parte más ancha.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th>
+          <th class="size-th">XL</th><th class="size-th">2XL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">168–177</td><td class="size-val">177–178</td><td class="size-val">178–183</td><td class="size-val">180–185</td><td class="size-val">183–188</td><td class="size-val">183–188</td></tr>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">89–94</td><td class="size-val">97–102</td><td class="size-val">104–109</td><td class="size-val">112–117</td><td class="size-val">119–127</td><td class="size-val">130–137</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CHAQUETAS MTB</h2></div>
+      <div class="measure-note">Pecho por la parte más ancha.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th>
+          <th class="size-th">XL</th><th class="size-th">2XL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">168–177</td><td class="size-val">177–178</td><td class="size-val">178–183</td><td class="size-val">180–185</td><td class="size-val">183–188</td><td class="size-val">183–188</td></tr>
+          <tr><td class="row-label">Pecho (cm)</td><td class="size-val">89–94</td><td class="size-val">97–102</td><td class="size-val">104–109</td><td class="size-val">112–117</td><td class="size-val">119–127</td><td class="size-val">130–137</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">PANTALONES / SHORTS MTB</h2></div>
+      <div class="measure-note">Talla indicada por número de cintura (pulgadas US).</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">28</th><th class="size-th">30</th><th class="size-th">32</th><th class="size-th">34</th>
+          <th class="size-th">36</th><th class="size-th">38</th><th class="size-th">40</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Altura (cm)</td><td class="size-val">168–173</td><td class="size-val">173–178</td><td class="size-val">178–183</td><td class="size-val">183–188</td><td class="size-val">185–191</td><td class="size-val">185–191</td><td class="size-val">185–191</td></tr>
+          <tr><td class="row-label">Cintura (cm)</td><td class="size-val">71–74</td><td class="size-val">76–79</td><td class="size-val">81–84</td><td class="size-val">86–89</td><td class="size-val">91–94</td><td class="size-val">97–99</td><td class="size-val">102–104</td></tr>
+          <tr><td class="row-label">Cadera (cm)</td><td class="size-val">86–89</td><td class="size-val">91–94</td><td class="size-val">97–99</td><td class="size-val">102–104</td><td class="size-val">107–109</td><td class="size-val">112–114</td><td class="size-val">117–119</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CALZADO
+══════════════════════════════════════ -->
+<div id="tab-calzado" class="tab-content">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('calzado','leatt',this)">LEATT</button>
+    <button class="brand-btn" onclick="showBrand('calzado','fox',this)">FOX</button>
+    <button class="brand-btn" onclick="showBrand('calzado','shimano',this)">SHIMANO</button>
+    <button class="brand-btn" onclick="showBrand('calzado','gaerne',this)">GAERNE</button>
+    <button class="brand-btn" onclick="showBrand('calzado','fiveten',this)">FIVE TEN</button>
+    <button class="brand-btn" onclick="showBrand('calzado','mavic',this)">MAVIC</button>
+  </div>
+
+  <!-- CALZADO · LEATT -->
+  <div id="calzado-leatt" class="brand-content active">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS MTB</h2></div>
+      <div class="measure-note">Mide el pie en cm desde el talón hasta el dedo más largo.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Sistema</th>
+          <th class="size-th">38.5</th><th class="size-th">40</th><th class="size-th">41.5</th>
+          <th class="size-th">42</th><th class="size-th">43</th><th class="size-th">43.5</th>
+          <th class="size-th">44</th><th class="size-th">44.5</th><th class="size-th">45.5</th>
+          <th class="size-th">47</th><th class="size-th">48.5</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">US</td><td class="size-val">6</td><td class="size-val">7</td><td class="size-val">8</td><td class="size-val">8.5</td><td class="size-val">9</td><td class="size-val">9.5</td><td class="size-val">10</td><td class="size-val">10.5</td><td class="size-val">11</td><td class="size-val">12</td><td class="size-val">13</td></tr>
+          <tr><td class="row-label">UK</td><td class="size-val">5.5</td><td class="size-val">6.5</td><td class="size-val">7.5</td><td class="size-val">8</td><td class="size-val">8.5</td><td class="size-val">9</td><td class="size-val">9.5</td><td class="size-val">10</td><td class="size-val">10.5</td><td class="size-val">11</td><td class="size-val">12.5</td></tr>
+          <tr><td class="row-label">CM</td><td class="size-val">24</td><td class="size-val">25</td><td class="size-val">26</td><td class="size-val">26.5</td><td class="size-val">27</td><td class="size-val">27.5</td><td class="size-val">28</td><td class="size-val">28.5</td><td class="size-val">29</td><td class="size-val">30</td><td class="size-val">31</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CALZADO · FOX -->
+  <div id="calzado-fox" class="brand-content">
+    <div class="warn-note">⚠️ Fox recomienda pedir una talla menos de lo habitual — las zapatillas tienden a ser grandes.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS MTB</h2></div>
+      <div class="measure-note">Mide el pie en cm desde el talón hasta el dedo más largo.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>EU</th><th class="size-th">US ♂</th><th class="size-th">US ♀</th>
+          <th class="size-th">Youth</th><th class="size-th">UK</th><th class="size-th">CM</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">37</td><td class="size-val">5</td><td class="size-val">6.5</td><td class="size-val">Y5</td><td class="size-val">4</td><td class="size-val">23.5</td></tr>
+          <tr><td class="row-label">38</td><td class="size-val">6</td><td class="size-val">7.5</td><td class="size-val">Y6</td><td class="size-val">5</td><td class="size-val">24.5</td></tr>
+          <tr><td class="row-label">39</td><td class="size-val">7</td><td class="size-val">8.5</td><td class="size-val">Y7</td><td class="size-val">6</td><td class="size-val">25.1</td></tr>
+          <tr><td class="row-label">40</td><td class="size-val">7.5</td><td class="size-val">9</td><td class="size-val">Y7.5</td><td class="size-val">6.5</td><td class="size-val">25.8</td></tr>
+          <tr><td class="row-label">41</td><td class="size-val">8</td><td class="size-val">9.5</td><td class="size-val">Y8</td><td class="size-val">7</td><td class="size-val">26.5</td></tr>
+          <tr><td class="row-label">41.5</td><td class="size-val">8.5</td><td class="size-val">10</td><td class="size-val">—</td><td class="size-val">7.5</td><td class="size-val">26.8</td></tr>
+          <tr><td class="row-label">42</td><td class="size-val">9</td><td class="size-val">10.5</td><td class="size-val">—</td><td class="size-val">8</td><td class="size-val">27.1</td></tr>
+          <tr><td class="row-label">42.5</td><td class="size-val">9.5</td><td class="size-val">11</td><td class="size-val">—</td><td class="size-val">8.5</td><td class="size-val">27.5</td></tr>
+          <tr><td class="row-label">43</td><td class="size-val">10</td><td class="size-val">11.5</td><td class="size-val">—</td><td class="size-val">9</td><td class="size-val">27.8</td></tr>
+          <tr><td class="row-label">43.5</td><td class="size-val">10.25</td><td class="size-val">11.75</td><td class="size-val">—</td><td class="size-val">9.25</td><td class="size-val">28.1</td></tr>
+          <tr><td class="row-label">44</td><td class="size-val">10.5</td><td class="size-val">12</td><td class="size-val">—</td><td class="size-val">9.5</td><td class="size-val">28.5</td></tr>
+          <tr><td class="row-label">44.5</td><td class="size-val">11</td><td class="size-val">12.5</td><td class="size-val">—</td><td class="size-val">10</td><td class="size-val">28.8</td></tr>
+          <tr><td class="row-label">45</td><td class="size-val">11.5</td><td class="size-val">13</td><td class="size-val">—</td><td class="size-val">10.5</td><td class="size-val">29.1</td></tr>
+          <tr><td class="row-label">45.5</td><td class="size-val">12</td><td class="size-val">13.5</td><td class="size-val">—</td><td class="size-val">11</td><td class="size-val">29.5</td></tr>
+          <tr><td class="row-label">46</td><td class="size-val">12.5</td><td class="size-val">14</td><td class="size-val">—</td><td class="size-val">11.5</td><td class="size-val">29.8</td></tr>
+          <tr><td class="row-label">47</td><td class="size-val">13</td><td class="size-val">14.5</td><td class="size-val">—</td><td class="size-val">12</td><td class="size-val">30.5</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CALZADO · SHIMANO -->
+  <div id="calzado-shimano" class="brand-content">
+    <div class="measure-note">Mide el pie en cm desde el talón hasta el dedo más largo.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS HOMBRE</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>EU</th><th class="size-th">US</th><th class="size-th">CM</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">36</td><td class="size-val">3.7</td><td class="size-val">22.5</td></tr>
+          <tr><td class="row-label">36.5</td><td class="size-val">4.2</td><td class="size-val">23.0</td></tr>
+          <tr><td class="row-label">37</td><td class="size-val">4.5</td><td class="size-val">23.2</td></tr>
+          <tr><td class="row-label">37.5</td><td class="size-val">4.8</td><td class="size-val">23.8</td></tr>
+          <tr><td class="row-label">38</td><td class="size-val">5.2</td><td class="size-val">24.2</td></tr>
+          <tr><td class="row-label">38.5</td><td class="size-val">5.5</td><td class="size-val">24.5</td></tr>
+          <tr><td class="row-label">39</td><td class="size-val">5.8</td><td class="size-val">24.8</td></tr>
+          <tr><td class="row-label">39.5</td><td class="size-val">6.2</td><td class="size-val">25.2</td></tr>
+          <tr><td class="row-label">40</td><td class="size-val">6.7</td><td class="size-val">25.5</td></tr>
+          <tr><td class="row-label">40.5</td><td class="size-val">7.2</td><td class="size-val">25.5</td></tr>
+          <tr><td class="row-label">41</td><td class="size-val">7.6</td><td class="size-val">25.8</td></tr>
+          <tr><td class="row-label">41.5</td><td class="size-val">8.0</td><td class="size-val">26.2</td></tr>
+          <tr><td class="row-label">42</td><td class="size-val">8.3</td><td class="size-val">26.5</td></tr>
+          <tr><td class="row-label">42.5</td><td class="size-val">8.7</td><td class="size-val">26.8</td></tr>
+          <tr><td class="row-label">43</td><td class="size-val">8.9</td><td class="size-val">27.2</td></tr>
+          <tr><td class="row-label">43.5</td><td class="size-val">9.3</td><td class="size-val">27.5</td></tr>
+          <tr><td class="row-label">44</td><td class="size-val">9.7</td><td class="size-val">27.8</td></tr>
+          <tr><td class="row-label">44.5</td><td class="size-val">10.2</td><td class="size-val">28.2</td></tr>
+          <tr><td class="row-label">45</td><td class="size-val">10.5</td><td class="size-val">28.5</td></tr>
+          <tr><td class="row-label">45.5</td><td class="size-val">10.9</td><td class="size-val">28.8</td></tr>
+          <tr><td class="row-label">46</td><td class="size-val">11.2</td><td class="size-val">29.2</td></tr>
+          <tr><td class="row-label">46.5</td><td class="size-val">11.5</td><td class="size-val">29.5</td></tr>
+          <tr><td class="row-label">47</td><td class="size-val">11.8</td><td class="size-val">29.8</td></tr>
+          <tr><td class="row-label">47.5</td><td class="size-val">12.0</td><td class="size-val">30.2</td></tr>
+          <tr><td class="row-label">48</td><td class="size-val">12.3</td><td class="size-val">30.5</td></tr>
+          <tr><td class="row-label">49</td><td class="size-val">13.0</td><td class="size-val">31.2</td></tr>
+          <tr><td class="row-label">50</td><td class="size-val">14.0</td><td class="size-val">31.8</td></tr>
+          <tr><td class="row-label">51</td><td class="size-val">15.0</td><td class="size-val">32.5</td></tr>
+          <tr><td class="row-label">52</td><td class="size-val">16.0</td><td class="size-val">33.1</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS MUJER</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>EU</th><th class="size-th">US</th><th class="size-th">CM</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">35</td><td class="size-val">4.5</td><td class="size-val">21.9</td></tr>
+          <tr><td class="row-label">36</td><td class="size-val">5.1</td><td class="size-val">22.5</td></tr>
+          <tr><td class="row-label">37</td><td class="size-val">5.5</td><td class="size-val">23.2</td></tr>
+          <tr><td class="row-label">38</td><td class="size-val">6.5</td><td class="size-val">23.8</td></tr>
+          <tr><td class="row-label">39</td><td class="size-val">7.2</td><td class="size-val">24.5</td></tr>
+          <tr><td class="row-label">40</td><td class="size-val">7.8</td><td class="size-val">25.2</td></tr>
+          <tr><td class="row-label">41</td><td class="size-val">8.5</td><td class="size-val">25.8</td></tr>
+          <tr><td class="row-label">42</td><td class="size-val">9.5</td><td class="size-val">26.5</td></tr>
+          <tr><td class="row-label">43</td><td class="size-val">10.4</td><td class="size-val">27.2</td></tr>
+          <tr><td class="row-label">44</td><td class="size-val">11.2</td><td class="size-val">27.8</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CALZADO · GAERNE -->
+  <div id="calzado-gaerne" class="brand-content">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS CICLISMO</h2></div>
+      <div class="measure-note">Mide el pie en cm desde el talón hasta el dedo más largo.</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>EU</th><th class="size-th">US</th><th class="size-th">CM</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">39</td><td class="size-val">5.5</td><td class="size-val">24.5</td></tr>
+          <tr><td class="row-label">40</td><td class="size-val">6.5</td><td class="size-val">25.2</td></tr>
+          <tr><td class="row-label">41</td><td class="size-val">7.0</td><td class="size-val">25.9</td></tr>
+          <tr><td class="row-label">41.5</td><td class="size-val">7.5</td><td class="size-val">26.2</td></tr>
+          <tr><td class="row-label">42</td><td class="size-val">8.0</td><td class="size-val">26.5</td></tr>
+          <tr><td class="row-label">42.5</td><td class="size-val">8.5</td><td class="size-val">26.9</td></tr>
+          <tr><td class="row-label">43</td><td class="size-val">9.0</td><td class="size-val">27.2</td></tr>
+          <tr><td class="row-label">43.5</td><td class="size-val">9.0</td><td class="size-val">27.5</td></tr>
+          <tr><td class="row-label">44</td><td class="size-val">9.5</td><td class="size-val">27.9</td></tr>
+          <tr><td class="row-label">44.5</td><td class="size-val">10.0</td><td class="size-val">28.2</td></tr>
+          <tr><td class="row-label">45</td><td class="size-val">10.5</td><td class="size-val">28.5</td></tr>
+          <tr><td class="row-label">45.5</td><td class="size-val">10.5</td><td class="size-val">28.9</td></tr>
+          <tr><td class="row-label">46</td><td class="size-val">11.0</td><td class="size-val">29.2</td></tr>
+          <tr><td class="row-label">47</td><td class="size-val">12.0</td><td class="size-val">29.9</td></tr>
+          <tr><td class="row-label">48</td><td class="size-val">13.0</td><td class="size-val">30.5</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CALZADO · FIVE TEN -->
+  <div id="calzado-fiveten" class="brand-content">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS MTB</h2></div>
+      <div class="measure-note">Mide el pie descalzo en cm y localiza tu talla.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>CM</th><th class="size-th">EU</th><th class="size-th">UK</th>
+          <th class="size-th">US ♂</th><th class="size-th">US ♀</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">22.1</td><td class="size-val">36</td><td class="size-val">3.5</td><td class="size-val">4</td><td class="size-val">5</td></tr>
+          <tr><td class="row-label">22.5</td><td class="size-val">36⅔</td><td class="size-val">4</td><td class="size-val">4.5</td><td class="size-val">5.5</td></tr>
+          <tr><td class="row-label">22.9</td><td class="size-val">37⅓</td><td class="size-val">4.5</td><td class="size-val">5</td><td class="size-val">6</td></tr>
+          <tr><td class="row-label">23.3</td><td class="size-val">38</td><td class="size-val">5</td><td class="size-val">5.5</td><td class="size-val">6.5</td></tr>
+          <tr><td class="row-label">23.8</td><td class="size-val">38⅔</td><td class="size-val">5.5</td><td class="size-val">6</td><td class="size-val">7</td></tr>
+          <tr><td class="row-label">24.2</td><td class="size-val">39⅓</td><td class="size-val">6</td><td class="size-val">6.5</td><td class="size-val">7.5</td></tr>
+          <tr><td class="row-label">24.6</td><td class="size-val">40</td><td class="size-val">6.5</td><td class="size-val">7</td><td class="size-val">8</td></tr>
+          <tr><td class="row-label">25.0</td><td class="size-val">40⅔</td><td class="size-val">7</td><td class="size-val">7.5</td><td class="size-val">8.5</td></tr>
+          <tr><td class="row-label">25.5</td><td class="size-val">41⅓</td><td class="size-val">7.5</td><td class="size-val">8</td><td class="size-val">9</td></tr>
+          <tr><td class="row-label">25.9</td><td class="size-val">42</td><td class="size-val">8</td><td class="size-val">8.5</td><td class="size-val">9.5</td></tr>
+          <tr><td class="row-label">26.3</td><td class="size-val">42⅔</td><td class="size-val">8.5</td><td class="size-val">9</td><td class="size-val">10</td></tr>
+          <tr><td class="row-label">26.7</td><td class="size-val">43⅓</td><td class="size-val">9</td><td class="size-val">9.5</td><td class="size-val">10.5</td></tr>
+          <tr><td class="row-label">27.1</td><td class="size-val">44</td><td class="size-val">9.5</td><td class="size-val">10</td><td class="size-val">11</td></tr>
+          <tr><td class="row-label">27.6</td><td class="size-val">44⅔</td><td class="size-val">10</td><td class="size-val">10.5</td><td class="size-val">11.5</td></tr>
+          <tr><td class="row-label">28.0</td><td class="size-val">45⅓</td><td class="size-val">10.5</td><td class="size-val">11</td><td class="size-val">12</td></tr>
+          <tr><td class="row-label">28.4</td><td class="size-val">46</td><td class="size-val">11</td><td class="size-val">11.5</td><td class="size-val">12.5</td></tr>
+          <tr><td class="row-label">28.8</td><td class="size-val">46⅔</td><td class="size-val">11.5</td><td class="size-val">12</td><td class="size-val">13</td></tr>
+          <tr><td class="row-label">29.3</td><td class="size-val">47⅓</td><td class="size-val">12</td><td class="size-val">12.5</td><td class="size-val">13.5</td></tr>
+          <tr><td class="row-label">29.7</td><td class="size-val">48</td><td class="size-val">12.5</td><td class="size-val">13</td><td class="size-val">14</td></tr>
+          <tr><td class="row-label">30.1</td><td class="size-val">48⅔</td><td class="size-val">13</td><td class="size-val">13.5</td><td class="size-val">14.5</td></tr>
+          <tr><td class="row-label">30.5</td><td class="size-val">49⅓</td><td class="size-val">13.5</td><td class="size-val">14</td><td class="size-val">15</td></tr>
+          <tr><td class="row-label">31.0</td><td class="size-val">50</td><td class="size-val">14</td><td class="size-val">14.5</td><td class="size-val">15.5</td></tr>
+          <tr><td class="row-label">31.4</td><td class="size-val">50⅔</td><td class="size-val">14.5</td><td class="size-val">15</td><td class="size-val">—</td></tr>
+          <tr><td class="row-label">31.8</td><td class="size-val">51⅓</td><td class="size-val">15</td><td class="size-val">16</td><td class="size-val">—</td></tr>
+          <tr><td class="row-label">32.6</td><td class="size-val">52⅔</td><td class="size-val">16</td><td class="size-val">17</td><td class="size-val">—</td></tr>
+          <tr><td class="row-label">33.5</td><td class="size-val">53⅓</td><td class="size-val">17</td><td class="size-val">18</td><td class="size-val">—</td></tr>
+          <tr><td class="row-label">34.3</td><td class="size-val">54⅔</td><td class="size-val">18</td><td class="size-val">19</td><td class="size-val">—</td></tr>
+          <tr><td class="row-label">35.2</td><td class="size-val">55⅔</td><td class="size-val">19</td><td class="size-val">20</td><td class="size-val">—</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <!-- CALZADO · MAVIC -->
+  <div id="calzado-mavic" class="brand-content">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ZAPATILLAS CICLISMO</h2></div>
+      <div class="measure-note">Mide el pie en cm desde el talón hasta el dedo más largo.</div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>CM</th><th class="size-th">EU</th><th class="size-th">UK</th>
+          <th class="size-th">US</th><th class="size-th">JP</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">22.7</td><td class="size-val">36</td><td class="size-val">3.5</td><td class="size-val">4</td><td class="size-val">22</td></tr>
+          <tr><td class="row-label">23.0</td><td class="size-val">36⅔</td><td class="size-val">4</td><td class="size-val">4.5</td><td class="size-val">22.5</td></tr>
+          <tr><td class="row-label">23.5</td><td class="size-val">37⅓</td><td class="size-val">4.5</td><td class="size-val">5</td><td class="size-val">23</td></tr>
+          <tr><td class="row-label">24.0</td><td class="size-val">38</td><td class="size-val">5</td><td class="size-val">5.5</td><td class="size-val">23.5</td></tr>
+          <tr><td class="row-label">24.4</td><td class="size-val">38⅔</td><td class="size-val">5.5</td><td class="size-val">6</td><td class="size-val">24</td></tr>
+          <tr><td class="row-label">24.8</td><td class="size-val">39⅓</td><td class="size-val">6</td><td class="size-val">6.5</td><td class="size-val">24.5</td></tr>
+          <tr><td class="row-label">25.2</td><td class="size-val">40</td><td class="size-val">6.5</td><td class="size-val">7</td><td class="size-val">25</td></tr>
+          <tr><td class="row-label">25.6</td><td class="size-val">40⅔</td><td class="size-val">7</td><td class="size-val">7.5</td><td class="size-val">25.5</td></tr>
+          <tr><td class="row-label">26.0</td><td class="size-val">41⅓</td><td class="size-val">7.5</td><td class="size-val">8</td><td class="size-val">26</td></tr>
+          <tr><td class="row-label">26.5</td><td class="size-val">42</td><td class="size-val">8</td><td class="size-val">8.5</td><td class="size-val">26.5</td></tr>
+          <tr><td class="row-label">26.9</td><td class="size-val">42⅔</td><td class="size-val">8.5</td><td class="size-val">9</td><td class="size-val">27</td></tr>
+          <tr><td class="row-label">27.3</td><td class="size-val">43⅓</td><td class="size-val">9</td><td class="size-val">9.5</td><td class="size-val">27.5</td></tr>
+          <tr><td class="row-label">27.7</td><td class="size-val">44</td><td class="size-val">9.5</td><td class="size-val">10</td><td class="size-val">28</td></tr>
+          <tr><td class="row-label">28.0</td><td class="size-val">44⅔</td><td class="size-val">10</td><td class="size-val">10.5</td><td class="size-val">28.5</td></tr>
+          <tr><td class="row-label">28.6</td><td class="size-val">45⅓</td><td class="size-val">10.5</td><td class="size-val">11</td><td class="size-val">29</td></tr>
+          <tr><td class="row-label">29.0</td><td class="size-val">46</td><td class="size-val">11</td><td class="size-val">11.5</td><td class="size-val">29.5</td></tr>
+          <tr><td class="row-label">29.4</td><td class="size-val">46⅔</td><td class="size-val">11.5</td><td class="size-val">12</td><td class="size-val">30</td></tr>
+          <tr><td class="row-label">29.9</td><td class="size-val">47⅓</td><td class="size-val">12</td><td class="size-val">12.5</td><td class="size-val">30.5</td></tr>
+          <tr><td class="row-label">30.3</td><td class="size-val">48</td><td class="size-val">12.5</td><td class="size-val">13</td><td class="size-val">31</td></tr>
+          <tr><td class="row-label">30.7</td><td class="size-val">48⅔</td><td class="size-val">13</td><td class="size-val">13.5</td><td class="size-val">31.5</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     CASCOS
+══════════════════════════════════════ -->
+<div id="tab-cascos" class="tab-content">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('cascos','leatt',this)">LEATT</button>
+    <button class="brand-btn" onclick="showBrand('cascos','fox',this)">FOX</button>
+    <button class="brand-btn" onclick="showBrand('cascos','mavic',this)">MAVIC</button>
+  </div>
+
+  <!-- CASCOS · LEATT -->
+  <div id="cascos-leatt" class="brand-content active">
+    <div class="measure-note">Mide la circunferencia de la cabeza 2 cm por encima de las cejas.</div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">ENDURO / TRAIL / ALL-MTN</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">51–55</td><td class="size-val">55–59</td><td class="size-val">59–63</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GRAVITY 8.0 / 6.0 / 4.0 / 3.0</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">55–56</td><td class="size-val">57–58</td><td class="size-val">59–60</td><td class="size-val">61–62</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GRAVITY 2.0 / 1.0</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">53–54</td><td class="size-val">55–56</td><td class="size-val">57–58</td><td class="size-val">59–60</td><td class="size-val">61–62</td><td class="size-val">63–64</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">URBAN 2.0 / 1.0</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS/S</th><th class="size-th">M/L</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">51–55</td><td class="size-val">55–59</td></tr></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CASCOS · MAVIC -->
+  <div id="cascos-mavic" class="brand-content">
+    <div class="measure-note">Mide la circunferencia de la cabeza 2 cm por encima de las cejas.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CASCOS CICLISMO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">Cabeza (cm)</td><td class="size-val">51–56</td><td class="size-val">54–59</td><td class="size-val">57–61</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- CASCOS · FOX -->
+  <div id="cascos-fox" class="brand-content">
+    <div class="measure-note">Mide la circunferencia de la cabeza 2 cm por encima de las cejas.</div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">RAMPAGE PRO CARBON</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">55–56</td><td class="size-val">57–58</td><td class="size-val">59–60</td><td class="size-val">61–62</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">RAMPAGE PRO CARBON (2018 y ant.) / RAMPAGE (2019 y ant.)</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">2X</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">52.7–54</td><td class="size-val">55.3–56.5</td><td class="size-val">56.5–59.1</td><td class="size-val">59.1–60.3</td><td class="size-val">60.3–62.9</td><td class="size-val">62.9–64.1</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">RAMPAGE COMP</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">2X</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">52.7–54</td><td class="size-val">55.3–56.5</td><td class="size-val">56.5–59.1</td><td class="size-val">59.1–60.3</td><td class="size-val">60.3–62.9</td><td class="size-val">62.9–64.1</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">RAMPAGE</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">YS</th><th class="size-th">YL</th><th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">2X</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">49–50</td><td class="size-val">51–52</td><td class="size-val">53–54</td><td class="size-val">55–56</td><td class="size-val">57–58</td><td class="size-val">59–60</td><td class="size-val">61–62</td><td class="size-val">63–64</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">SPEEDFRAME</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">51–55</td><td class="size-val">55–59</td><td class="size-val">59–63</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">DROPFRAME</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">52–54</td><td class="size-val">54–56</td><td class="size-val">56–58</td><td class="size-val">58–60</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">FLIGHT</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">53–54</td><td class="size-val">55–55.9</td><td class="size-val">57.2–58.1</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">PROFRAME</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">52–55.9</td><td class="size-val">55.9–59.1</td><td class="size-val">59.1–60.3</td><td class="size-val">60.3–64.1</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">MAINFRAME</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Medida</th><th class="size-th">Y</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+        <tbody><tr><td class="row-label">Cabeza (cm)</td><td class="size-val">48–52</td><td class="size-val">51–55</td><td class="size-val">55–59</td><td class="size-val">59–63</td></tr></tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     GUANTES
+══════════════════════════════════════ -->
+<div id="tab-guantes" class="tab-content">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('guantes','leatt',this)">LEATT</button>
+    <button class="brand-btn" onclick="showBrand('guantes','fox',this)">FOX</button>
+    <button class="brand-btn" onclick="showBrand('guantes','inverse',this)">INVERSE</button>
+    <button class="brand-btn" onclick="showBrand('guantes','gore',this)">GORE</button>
+  </div>
+
+  <!-- GUANTES · GORE -->
+  <div id="guantes-gore" class="brand-content">
+    <div class="measure-note">Contorno de la mano en pulgadas (medida oficial Gore). Equivalencias aprox: XS≈18.5cm · S≈20cm · M≈21.5cm · L≈23cm · XL≈24.5cm · XXL≈25.5cm · 3XL≈27cm.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GUANTES CICLISMO (UNISEX)</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+          <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th><th class="size-th">3XL</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Talla numérica</td><td class="size-val">5</td><td class="size-val">6</td><td class="size-val">7</td><td class="size-val">8</td><td class="size-val">9</td><td class="size-val">10</td><td class="size-val">11</td></tr>
+          <tr><td class="row-label">Contorno (pulg.)</td><td class="size-val">7.3–7.8</td><td class="size-val">7.8–8.3</td><td class="size-val">8.3–8.7</td><td class="size-val">8.7–9.2</td><td class="size-val">9.2–9.7</td><td class="size-val">9.7–10.2</td><td class="size-val">10.2–10.6</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- GUANTES · LEATT -->
+  <div id="guantes-leatt" class="brand-content active">
+    <div class="measure-note">Circunferencia de la mano por los nudillos, sin incluir el pulgar.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GUANTES ADULTO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XS<br><span class="sub-size">EU6·US7</span></th>
+          <th class="size-th">S<br><span class="sub-size">EU7·US8</span></th>
+          <th class="size-th">M<br><span class="sub-size">EU8·US9</span></th>
+          <th class="size-th">L<br><span class="sub-size">EU9·US10</span></th>
+          <th class="size-th">XL<br><span class="sub-size">EU10·US11</span></th>
+          <th class="size-th">XXL<br><span class="sub-size">EU11·US12</span></th>
+        </tr></thead>
+        <tbody><tr><td class="row-label">Mano (cm)</td><td class="size-val">15.2–17.8</td><td class="size-val">17.8–20.3</td><td class="size-val">20.3–22.9</td><td class="size-val">22.9–25.4</td><td class="size-val">25.4–27.9</td><td class="size-val">27.9+</td></tr></tbody>
+      </table></div>
+    </div>
+    <hr class="divider">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GUANTES JUNIOR</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">XXS<br><span class="sub-size">EU4·US5</span></th>
+          <th class="size-th">XS<br><span class="sub-size">EU5·US6</span></th>
+          <th class="size-th">JR S<br><span class="sub-size">EU6·US7</span></th>
+          <th class="size-th">JR M<br><span class="sub-size">EU6.5·US7.5</span></th>
+          <th class="size-th">JR L<br><span class="sub-size">EU7·US8</span></th>
+        </tr></thead>
+        <tbody><tr><td class="row-label">Mano (cm)</td><td class="size-val">10.1–12.7</td><td class="size-val">12.7–15.2</td><td class="size-val">15.2–16.5</td><td class="size-val">16.5–17.8</td><td class="size-val">17.8–20.3</td></tr></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- GUANTES · INVERSE -->
+  <div id="guantes-inverse" class="brand-content">
+    <div class="measure-note">Circunferencia de la mano por los nudillos, sin incluir el pulgar.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GUANTES CICLISMO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Talla</th><th class="size-th">Mano (cm)</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">XS</td><td class="size-val">17–18</td></tr>
+          <tr><td class="row-label">S</td><td class="size-val">18–19.5</td></tr>
+          <tr><td class="row-label">M</td><td class="size-val">19.5–20.5</td></tr>
+          <tr><td class="row-label">L</td><td class="size-val">20.5–21.5</td></tr>
+          <tr><td class="row-label">XL</td><td class="size-val">21.5–23</td></tr>
+          <tr><td class="row-label">XXL</td><td class="size-val">23–25</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- GUANTES · FOX -->
+  <div id="guantes-fox" class="brand-content">
+    <div class="measure-note">Circunferencia de la mano por los nudillos, sin incluir el pulgar.</div>
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">GUANTES MTB</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Medida</th>
+          <th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th>
+          <th class="size-th">XL</th><th class="size-th">2XL</th><th class="size-th">3XL</th><th class="size-th">4XL</th>
+        </tr></thead>
+        <tbody><tr><td class="row-label">Mano (cm)</td><td class="size-val">18.2–18.8</td><td class="size-val">18.8–19.4</td><td class="size-val">19.4–20.0</td><td class="size-val">20.0–20.6</td><td class="size-val">20.6–21.2</td><td class="size-val">21.2–21.8</td><td class="size-val">21.8–22.4</td></tr></tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROTECCIONES
+══════════════════════════════════════ -->
+<div id="tab-protecciones" class="tab-content">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('protecciones','leatt',this)">LEATT</button>
+    <button class="brand-btn" onclick="showBrand('protecciones','fox',this)">FOX</button>
+    <button class="brand-btn" onclick="showBrand('protecciones','raceface',this)">RACE FACE</button>
+  </div>
+
+  <!-- PROTECCIONES · LEATT -->
+  <div id="protecciones-leatt" class="brand-content active">
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" onclick="showSub('l-rodilleras',this)">Rodilleras</button>
+      <button class="sub-tab-btn" onclick="showSub('l-coderas',this)">Coderas</button>
+      <button class="sub-tab-btn" onclick="showSub('l-petos',this)">Petos</button>
+      <button class="sub-tab-btn" onclick="showSub('l-petos-int',this)">Petos Integrales</button>
+      <button class="sub-tab-btn" onclick="showSub('l-impact',this)">Impact Shorts</button>
+    </div>
+
+    <div id="sub-l-rodilleras" class="sub-content active">
+      <div class="measure-note">13 cm por encima y 13 cm por debajo del centro de la rodilla.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">DUAL AXIS / 3DF 6.0 / 3DF 5.0 / 3DF 5.0 ZIP / 3DF HYBRID / 3DF HYBRID EXT</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">MINI</th><th class="size-th">JR</th><th class="size-th">S/M</th><th class="size-th">L/XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">Sobre rodilla (cm)</td><td class="size-val">26–32</td><td class="size-val">28–34</td><td class="size-val">33–41</td><td class="size-val">41–53</td><td class="size-val">53–58</td></tr>
+            <tr><td class="row-label">Bajo rodilla (cm)</td><td class="size-val">18–22</td><td class="size-val">20–26</td><td class="size-val">25–33</td><td class="size-val">33–44</td><td class="size-val">44–51</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">AIRFLEX PRO / AIRFLEX HYBRID / AIRFLEX HYBRID PRO / AIRFLEX ULTRALITE</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">JR</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">Sobre rodilla (cm)</td><td class="size-val">30–34</td><td class="size-val">33–37</td><td class="size-val">37–41</td><td class="size-val">41–47</td><td class="size-val">47–53</td><td class="size-val">53–59</td></tr>
+            <tr><td class="row-label">Bajo rodilla (cm)</td><td class="size-val">22–26</td><td class="size-val">25–29</td><td class="size-val">29–33</td><td class="size-val">33–38</td><td class="size-val">38–44</td><td class="size-val">44–51</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-l-coderas" class="sub-content">
+      <div class="measure-note">Circunferencia del antebrazo en la parte más ancha, justo bajo el codo.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">3DF 5.0 / CONTOUR</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">MINI</th><th class="size-th">JR</th><th class="size-th">S/M</th><th class="size-th">L/XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Antebrazo (cm)</td><td class="size-val">18–20</td><td class="size-val">19–23</td><td class="size-val">22–28</td><td class="size-val">28–35</td><td class="size-val">35–41</td></tr></tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">3DF 5.0 EVO / 3DF 6.0 / REAFLEX / REAFLEX HYBRID / REAFLEX ULTRALITE</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">JR</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Antebrazo (cm)</td><td class="size-val">19–21</td><td class="size-val">20–24</td><td class="size-val">24–28</td><td class="size-val">28–32</td><td class="size-val">32–36</td><td class="size-val">36–40</td></tr></tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-l-petos" class="sub-content">
+      <div class="measure-note">Talla por altura salvo donde se indica peso.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">6.5 PRO / 5.5 PRO EVO / 4.5 PRO EVO / 4.5 PRO / REALFLEX</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S/M</th><th class="size-th">L/XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Altura (cm)</td><td class="size-val">160–172</td><td class="size-val">172–184</td><td class="size-val">184–196</td></tr></tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">REALFLEX WOMAN</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">XXS/XS</th><th class="size-th">S/M</th><th class="size-th">L</th></tr></thead>
+          <tbody><tr><td class="row-label">Altura (cm)</td><td class="size-val">148–160</td><td class="size-val">160–172</td><td class="size-val">172–178</td></tr></tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">PETOS POR PESO</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Modelo</th><th>Talla</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">4.5 Jacki Pro / 4.5 Jacki</td><td class="size-val">ADULTO</td><td class="size-val">55–95 kg</td></tr>
+            <tr><td class="row-label">3.5 Pro / 3.5</td><td class="size-val">ADULTO</td><td class="size-val">70–90 kg</td></tr>
+            <tr><td class="row-label">3.5 Pro / 3.5</td><td class="size-val">XXL</td><td class="size-val">90–130 kg</td></tr>
+            <tr><td class="row-label">2.5 / 1.5 / 1.5 Torque</td><td class="size-val">ADULTO</td><td class="size-val">60–90 kg</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-l-petos-int" class="sub-content">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">6.5 / 5.5 EVO / 4.5 EVO / 3.5 / REAFLEX / REAFLEX STEALTH / 3DF AIRFIT LITE EVO</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Altura (cm)</td><td class="size-val">160–166</td><td class="size-val">166–172</td><td class="size-val">172–178</td><td class="size-val">178–184</td><td class="size-val">184–196</td></tr></tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">2.5 / 3DF AIRFIT EVO / 3DF AIRFIT HYBRID / ROOST</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S/M</th><th class="size-th">L/XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Altura (cm)</td><td class="size-val">160–172</td><td class="size-val">172–184</td><td class="size-val">184–196</td></tr></tbody>
+        </table></div>
+      </div>
+      <hr class="divider">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">REAFLEX WOMAN</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">XXS</th><th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+          <tbody><tr><td class="row-label">Altura (cm)</td><td class="size-val">148–154</td><td class="size-val">154–160</td><td class="size-val">160–166</td><td class="size-val">166–172</td><td class="size-val">172–178</td></tr></tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-l-impact" class="sub-content">
+      <div class="measure-note">Cintura a la altura del ombligo.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">IMPACT SHORTS / PANTS</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th></tr></thead>
+          <tbody><tr><td class="row-label">Cintura (cm)</td><td class="size-val">71–76</td><td class="size-val">76–81</td><td class="size-val">81–86</td><td class="size-val">86–91</td><td class="size-val">91–96</td></tr></tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTECCIONES · FOX -->
+  <div id="protecciones-fox" class="brand-content">
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" onclick="showSub('f-rodilleras',this)">Rodilleras</button>
+      <button class="sub-tab-btn" onclick="showSub('f-coderas',this)">Coderas</button>
+      <button class="sub-tab-btn" onclick="showSub('f-petos',this)">Petos / Body Armour</button>
+    </div>
+
+    <div id="sub-f-rodilleras" class="sub-content active">
+      <div class="measure-note">7.5 cm por encima de la rodilla (muslo) y parte más ancha del gemelo.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">LAUNCH PRO / LAUNCH PRO D30 / ENDURO / ENDURO PRO</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">YOUTH</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">Muslo +7.5cm (cm)</td><td class="size-val">27.9–30.5</td><td class="size-val">36.8–39.4</td><td class="size-val">39.4–41.9</td><td class="size-val">41.9–44.5</td></tr>
+            <tr><td class="row-label">Gemelo máx. (cm)</td><td class="size-val">26.7–29.2</td><td class="size-val">34.3–36.8</td><td class="size-val">36.8–39.4</td><td class="size-val">39.4–41.9</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-f-coderas" class="sub-content">
+      <div class="measure-note">7.5 cm por encima del codo (bíceps) y parte más ancha del antebrazo.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">LAUNCH PRO / LAUNCH PRO D30 / ENDURO / ENDURO PRO</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">Bíceps +7.5cm (cm)</td><td class="size-val">26.7–29.2</td><td class="size-val">27.9–30.5</td><td class="size-val">29.2–31.8</td><td class="size-val">30.5–33.0</td></tr>
+            <tr><td class="row-label">Antebrazo máx. (cm)</td><td class="size-val">27.3–29.9</td><td class="size-val">28.6–31.2</td><td class="size-val">29.9–32.4</td><td class="size-val">31.1–33.7</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-f-petos" class="sub-content">
+      <div class="measure-note">Talla por altura y pecho.</div>
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">TITAN SPORT / RACE / PRO</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Medida</th><th class="size-th">S</th><th class="size-th">M</th><th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">2XL</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">Altura (cm)</td><td class="size-val">168–173</td><td class="size-val">173–178</td><td class="size-val">178–183</td><td class="size-val">180–185</td><td class="size-val">183–188</td></tr>
+            <tr><td class="row-label">Pecho (cm)</td><td class="size-val">89–94</td><td class="size-val">97–102</td><td class="size-val">104–109</td><td class="size-val">112–117</td><td class="size-val">119–127</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+  <!-- PROTECCIONES · RACE FACE -->
+  <div id="protecciones-raceface" class="brand-content">
+    <div class="measure-note">Muslo medido en la parte más ancha. Gemelo en la parte más ancha de la pantorrilla.</div>
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" onclick="showSub('rf-charge',this)">Charge / Indy / Ambush</button>
+      <button class="sub-tab-btn" onclick="showSub('rf-covert',this)">Covert</button>
+    </div>
+
+    <div id="sub-rf-charge" class="sub-content active">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CHARGE / INDY / AMBUSH</h2></div>
+        <div class="table-wrap"><table>
+          <thead><tr>
+            <th>Medida</th>
+            <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+            <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="row-label">Muslo (cm)</td><td class="size-val">37–39.5</td><td class="size-val">39.5–42</td><td class="size-val">42–44.5</td><td class="size-val">44.5–47</td><td class="size-val">47–49.5</td><td class="size-val">49.5–52</td></tr>
+            <tr><td class="row-label">Gemelo (cm)</td><td class="size-val">28.5–31</td><td class="size-val">31–33.5</td><td class="size-val">33.5–36</td><td class="size-val">36–38.5</td><td class="size-val">38.5–41</td><td class="size-val">41–43.5</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div id="sub-rf-covert" class="sub-content">
+      <div class="section-block">
+        <div class="section-head"><div class="red-bar"></div><h2 class="section-title">COVERT</h2></div>
+        <p class="section-models">El Covert usa tejidos con diferente elasticidad — talla ligeramente diferente al resto de modelos.</p>
+        <div class="table-wrap"><table>
+          <thead><tr>
+            <th>Medida</th>
+            <th class="size-th">XS</th><th class="size-th">S</th><th class="size-th">M</th>
+            <th class="size-th">L</th><th class="size-th">XL</th><th class="size-th">XXL</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="row-label">Muslo (cm)</td><td class="size-val">35–37.5</td><td class="size-val">37.5–40</td><td class="size-val">40–42.5</td><td class="size-val">42.5–45</td><td class="size-val">45–47.5</td><td class="size-val">47.5–50</td></tr>
+            <tr><td class="row-label">Gemelo (cm)</td><td class="size-val">27–29.5</td><td class="size-val">29.5–32</td><td class="size-val">32–34.5</td><td class="size-val">34.5–37</td><td class="size-val">37–39.5</td><td class="size-val">39.5–42</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     CALCETINES
+══════════════════════════════════════ -->
+<div id="tab-calcetines" class="tab-content">
+  <div class="brand-selector">
+    <button class="brand-btn active" onclick="showBrand('calcetines','inverse',this)">INVERSE</button>
+    <button class="brand-btn" onclick="showBrand('calcetines','gore',this)">GORE</button>
+  </div>
+
+  <!-- CALCETINES · INVERSE -->
+  <div id="calcetines-inverse" class="brand-content active">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CALCETINES CICLISMO</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Talla</th><th class="size-th">EU</th><th class="size-th">UK</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">S</td><td class="size-val">37–39</td><td class="size-val">4–5.5</td></tr>
+          <tr><td class="row-label">M</td><td class="size-val">40–42</td><td class="size-val">6.5–8</td></tr>
+          <tr><td class="row-label">L</td><td class="size-val">43–45</td><td class="size-val">9–10.5</td></tr>
+          <tr><td class="row-label">XL</td><td class="size-val">46–48</td><td class="size-val">11.5–13</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <!-- CALCETINES · GORE -->
+  <div id="calcetines-gore" class="brand-content">
+    <div class="section-block">
+      <div class="section-head"><div class="red-bar"></div><h2 class="section-title">CALCETINES CICLISMO (UNISEX)</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Talla</th><th class="size-th">EU</th><th class="size-th">UK</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">S</td><td class="size-val">35–37</td><td class="size-val">2.5–4</td></tr>
+          <tr><td class="row-label">M</td><td class="size-val">38–40</td><td class="size-val">5–6.5</td></tr>
+          <tr><td class="row-label">L</td><td class="size-val">41–43</td><td class="size-val">7–8.5</td></tr>
+          <tr><td class="row-label">XL</td><td class="size-val">44–46</td><td class="size-val">9.5–11</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showBrand(tab, brand, btn) {
+    const tabEl = document.getElementById('tab-' + tab);
+    tabEl.querySelectorAll('.brand-content').forEach(el => el.classList.remove('active'));
+    tabEl.querySelectorAll('.brand-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tab + '-' + brand).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showSub(name, btn) {
+    const parent = btn.closest('.brand-content');
+    parent.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+    parent.querySelectorAll('.sub-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('sub-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
